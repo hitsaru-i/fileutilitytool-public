@@ -16,6 +16,7 @@ directories under the 'dist' folder.
 The utilities are listed as follows:
 
 FILECOMP is a utility for detecting and deleting duplicate files:
+
     Inputs:
         Starting Directory: Where you want the scan to start
         Database File: The database file you want to use, resume, or create.
@@ -36,8 +37,8 @@ FILECOMP is a utility for detecting and deleting duplicate files:
         one can scan multiple directories into one database and delete
         duplicate files from all locations as built in one database. 
 
-FILEGROUPER is a utility for copying files to directories based on
-        file extension or file name
+FILEGROUPER is a utility for copying files to directories based on file extension or file name
+
     Inputs:
         Origin Directory: The location where files to be grouped reside
         Destination Directory: where the files will be moved.
@@ -57,12 +58,13 @@ FILEGROUPER is a utility for copying files to directories based on
         Workflow:
             Select/Define source directory, Select Define Destination directory,
             Select/Define database file, chose grouping behavior, run process.
+
 DirectoryCleaner is a utility for deleting empty directories recursively
+
     (NOTE: Does not use database to record actions or resume)
     Inputs:
         Select directory: The starting directory
     Workflow:
         Select directory and run.
-
 
 The Output Window displays the operating results of the utilities.
