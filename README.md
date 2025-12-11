@@ -71,3 +71,16 @@ DirectoryCleaner is a utility for deleting empty directories recursively
         Select directory and run.
 
 The Output Window displays the operating results of the utilities.
+
+
+The CANCEL button will allow a user to STOP the current action.
+
+For tabs with a RESUME button (FILECOMP and FileGrouper) the RESUME button will resume the last
+action taken if interrupted. This allows the user to resume populating a database, calculating
+duplicates, deleting files, or grouping files from the last point of action. This is useful in the
+event of system interruption such as system crash or power outage or user interruption via CANCEL.
+Directory Cleaner does NOT have a resume state.
+
+The delete default db will delete the defined defualt db (hashdata.sqlite). This default is defined
+in the script and can be changed. A user supplied alternative database file in the database file window
+will NOT be deleted by the 'Delete Default DB' button.
