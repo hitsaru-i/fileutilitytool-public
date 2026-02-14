@@ -1,4 +1,4 @@
-('/home/rego/code/codepublic/fileutilitytool-public/Linux/build/fileutilitytoolgui/PYZ-00.pyz',
+('/home/rego/code/fileutilitytool-public/Linux/build/fileutilitytoolgui/PYZ-00.pyz',
  [('__future__', '/usr/lib/python3.12/__future__.py', 'PYMODULE'),
   ('_compat_pickle', '/usr/lib/python3.12/_compat_pickle.py', 'PYMODULE'),
   ('_compression', '/usr/lib/python3.12/_compression.py', 'PYMODULE'),

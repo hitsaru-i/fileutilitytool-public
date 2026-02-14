@@ -1033,6 +1033,9 @@ class App:
         self.root.title("File Utility Tool GUI")
         self.root.geometry("700x500")
 
+        # Log lines limit
+        self.MAX_LOG_LINES = 5000
+
         # cancellation event
         self.cancel_event = threading.Event()
         self.task_active = False
@@ -1308,8 +1311,7 @@ The Output Window displays the operating results of the utilities.
         if dir_path:
             target_entry.delete(0, tk.END)
             target_entry.insert(0, dir_path)
-            self.output_box.insert(tk.END, f"Directory selected: {dir_path}\n")
-            self.output_box.see(tk.END)
+            self._append_output(f"Directory selected: {dir_path}\n")
 
     def select_db_file(self):
         """Open dialog to select an existing SQLite database file."""
@@ -1320,17 +1322,29 @@ The Output Window displays the operating results of the utilities.
         if file_path:
             self.entry_dbname.delete(0, tk.END)
             self.entry_dbname.insert(0, file_path)
-            self.output_box.insert(tk.END, f"Database selected: {file_path}\n")
-            self.output_box.see(tk.END)
+            self._append_output(f"Database selected: {file_path}\n")
 
 
-    # helper to append
+    # helper to append, with log limit
     def _append_output(self, text):
         try:
-            self.output_box.insert(tk.END, text)
-            self.output_box.see(tk.END)
+            box = self.output_box
+
+            box.insert(tk.END, text)
+
+            # ---- LINE LIMIT ENFORCEMENT ----
+            line_count = int(box.index("end-1c").split(".")[0])
+
+            if line_count > self.MAX_LOG_LINES:
+                excess = line_count - self.MAX_LOG_LINES
+                box.delete("1.0", f"{excess + 1}.0")
+            box.yview_moveto(1.0)
+
         except Exception:
             pass
+
+
+
 
     # update progress
     def update_progress(self, percent):
